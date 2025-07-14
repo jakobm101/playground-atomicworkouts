@@ -18,12 +18,4 @@ const Exercise =
   mongoose.models.Exercise || mongoose.model("Exercise", ExerciseSchema);
 
 // load data
-
-import libExercises from "../../lib/exercises.js";
-export const fillExerciseCollection = async () => {
-  for (const item of libExercises) {
-    await Exercise.create(item);
-  }
-};
-
 export default Exercise;
