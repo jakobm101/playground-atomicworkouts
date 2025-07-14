@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import libWorkouts from "../../lib/workouts";
 
 const { Schema } = mongoose;
 
