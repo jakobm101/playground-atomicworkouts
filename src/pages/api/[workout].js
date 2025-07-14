@@ -1,10 +1,16 @@
+import { useRouter } from "next/router";
 import dbConnect from "../../../db/connect";
 import Exercise from "../../../db/Schema/Exercise";
 import Workout from "../../../db/Schema/Workout";
 
 export default async function handler(_, res) {
+  const { query } = useRouter;
+  console.log("⭐️ querry", query);
+
   await dbConnect();
   const workout = await Workout.findOne();
+  console.log(workout.exercises.map((exercise) => exercise.exerciseId));
+
   const array = workout.exercises.map((exercise) => exercise.exerciseId);
   const workoutName = workout.name;
 
