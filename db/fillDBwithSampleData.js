@@ -2,7 +2,7 @@
 
 import Exercise from "./Schema/Exercise.js";
 import Workout from "./Schema/Workout.js";
-import libExercises from "../../lib/exercises.js";
+import libExercises from "../lib/exercises.js";
 import libWorkouts from "../lib/workouts.js";
 
 export const fillExerciseCollection = async () => {
