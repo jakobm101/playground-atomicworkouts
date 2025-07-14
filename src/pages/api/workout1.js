@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import dbConnect from "../../../db/connect";
 import Exercise from "../../../db/Schema/Exercise";
 import Workout from "../../../db/Schema/Workout";
