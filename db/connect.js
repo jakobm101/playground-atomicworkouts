@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 
 mongoose.set("debug", true); // █ zeigt alle Mongo-Queries in der Konsole
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_TESTER;
 
 if (!MONGODB_URI) {
   throw new Error(
@@ -31,7 +32,7 @@ async function dbConnect() {
 
   if (!cached.promise) {
     const opts = {
-        bufferCommands: false,
+      bufferCommands: false,
     };
 
     cached.promise = mongoose
