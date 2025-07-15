@@ -6,14 +6,15 @@ export default async function handler(req, res) {
   try {
     await dbConnect();
     const workout = await Workout.findById(req.query.workout);
-    const array = workout.exercises.map((exercise) => exercise.exerciseId);
-    const workoutName = workout.name;
 
     //$in -- is some Mongo Magic array mapping
-    // const exercises = await Exercise.where({ id: { $in: array } });
-    const exercises = await Exercise.find({ id: { $in: array } });
+    const exerciseIds = workout.exercises.map(
+      (exercise) => exercise.exerciseId
+    );
+    const exercises = await Exercise.find({ id: { $in: exerciseIds } });
     const exerciseNames = exercises.map((exercise) => exercise.name);
 
+    const workoutName = workout.name;
     res.status(200).json({ exerciseNames, workoutName });
     return;
   } catch (error) {
