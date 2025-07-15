@@ -10,7 +10,8 @@ export default async function handler(req, res) {
     const workoutName = workout.name;
 
     //$in -- is some Mongo Magic array mapping
-    const exercises = await Exercise.where({ id: { $in: array } });
+    // const exercises = await Exercise.where({ id: { $in: array } });
+    const exercises = await Exercise.find({ id: { $in: array } });
     const exerciseNames = exercises.map((exercise) => exercise.name);
 
     res.status(200).json({ exerciseNames, workoutName });

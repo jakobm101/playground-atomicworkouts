@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   query = query[0].toUpperCase() + query.slice(1);
 
   if (!libMusclegroups.find((muscle) => muscle === query))
-    return res.status(500).json({ error: "not found" });
-
+    return res.status(500).json({ error: "Muscle not found" });
+ 
   try {
     await dbConnect();
     const exercises = await Exercise.find({
